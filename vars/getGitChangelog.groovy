@@ -8,9 +8,9 @@ def call(builds){
         for (int i = 0; i < changeLogSets.size(); i++) {
             def entries = changeLogSets[i].items
             for (int j = 0; j < entries.length; j++) {
-                String entry = entries[j]
+                entry = entries[j]
                 String author = entry.author
-                def currentChange = new Change(author, entry, 0);
+                def currentChange = new Change(author, entry.msg as String, 0);
                 changes.add(currentChange);
             }
         }
