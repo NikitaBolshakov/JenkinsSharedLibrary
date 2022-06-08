@@ -1,5 +1,6 @@
 import me.bolshakov.gitChangelog.Change
 
+@NonCPS
 def call(builds){
     def changes = []
     for (int x = 0; x < builds.size(); x++) {
