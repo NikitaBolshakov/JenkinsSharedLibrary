@@ -1,5 +1,6 @@
 package me.bolshakov.gitChangelog
 
+@NonCPS
 public class Change {
     final String author;
     final String message;
