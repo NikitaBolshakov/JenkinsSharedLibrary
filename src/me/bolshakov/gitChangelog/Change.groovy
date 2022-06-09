@@ -10,4 +10,13 @@ public class Change {
         this.message = message;
         this.relativeCommitId = relativeCommitId;
     }
+
+    @Override
+    String toString() {
+        """
+        Author: ${author}
+        Message: ${message}
+        CommitId: ${relativeCommitId}
+        """
+    }
 }
