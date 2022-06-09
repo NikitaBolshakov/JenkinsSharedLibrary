@@ -1,6 +1,5 @@
 package me.bolshakov.gitChangelog
 
-@NonCPS
 public class Change {
     final String author;
     final String message;
@@ -12,6 +11,7 @@ public class Change {
         this.relativeCommitId = relativeCommitId;
     }
 
+    @NonCPS
     @Override
     String toString() {
         """
