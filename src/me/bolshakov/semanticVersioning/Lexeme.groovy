@@ -5,4 +5,15 @@ class Lexeme{
     Boolean isFatal;
     String taskId;
     String description
+
+    @NonCPS
+    @Override
+    String toString() {
+        """
+        LexemeType: $lexemeType
+        IsFatal: $isFatal
+        TaskId: $taskId
+        Description: $description
+        """
+    }
 }
