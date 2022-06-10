@@ -25,8 +25,8 @@ class ChangeSet {
         changes
     }
 
-    static def retrieveGitChangelog(branch){
-        if(isUnix()){
+    static def retrieveGitChangelog(branch, isUnix){
+        if(isUnix){
             sh returnStdout: true, script: "git log --pretty=medium ${branch}"
         }
         else{
