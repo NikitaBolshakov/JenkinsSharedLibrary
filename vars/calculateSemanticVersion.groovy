@@ -9,7 +9,7 @@ private def takeLessThen(lexemes, lexemeType){
 @NonCPS
 def call(branch) {
     changelog = ""
-    if(isUnix){
+    if(isUnix()){
         changelog = sh returnStdout: true, script: "git log --pretty=medium ${branch}"
     }
     else{
