@@ -7,14 +7,18 @@ private def takeLessThen(lexemes, lexemeType){
 }
 
 @NonCPS
-def call(branch) {
-    changelog = ""
+private def getChangelog(branch){
     if(isUnix()){
         changelog = sh returnStdout: true, script: "git log --pretty=medium ${branch}"
     }
     else{
         changelog = bat returnStdout: true, script: "git log --pretty=medium ${branch}"
     }
+}
+
+@NonCPS
+def call(branch) {
+    changelog = getChangelog(branch)
     lexemes = ChangeSet.readGitChangelogPrettyMedium(changelog)
     countWithTypeFiltered = {arr, lType ->  arr.findAll{z -> z.lexemeType == lType}.size()}
     countWithType = {it -> countWithTypeFiltered(lexemes, it)}
