@@ -25,15 +25,6 @@ class ChangeSet {
         changes
     }
 
-    static def retrieveGitChangelog(branch, isUnix){
-        if(isUnix){
-            sh returnStdout: true, script: "git log --pretty=medium ${branch}"
-        }
-        else{
-            bat returnStdout: true, script: "git log --pretty=medium ${branch}"
-        }
-    }
-
     static def readGitChangelogPrettyMedium(changelog){
         //commit,Merge?,Author,Date,Title,Msg
         def changeList = []
