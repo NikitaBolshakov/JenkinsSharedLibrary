@@ -6,17 +6,17 @@ private def takeLessThen(lexemes, lexemeType){
     lexemes.takeWhile{it.lexemeType != lexemeType}
 }
 
-@NonCPS
+//@NonCPS
 def getChangelogUnix(branch){
     sh(returnStdout: true, script: "git log --pretty=medium ${branch}")
 }
 
-@NonCPS
+//@NonCPS
 def getChangelogWindows(branch){
     bat(returnStdout: true, script: "git log --pretty=medium ${branch}")
 }
 
-@NonCPS
+//@NonCPS
 def getChangelog(branch){
     if(isUnix()){
         return getChangelogUnix(branch);
@@ -24,7 +24,7 @@ def getChangelog(branch){
     return getChangelogWindows(branch)
 }
 
-@NonCPS
+//@NonCPS
 def call(branch) {
     changelog = getChangelog(branch)
     lexemes = ChangeSet.readGitChangelogPrettyMedium(changelog)
