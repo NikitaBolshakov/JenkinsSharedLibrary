@@ -2,14 +2,14 @@ def call(args){
     if(args instanceof String)
     {
         script = args
-        returnStatus = true
+        returnStatus = false
         returnStdout = false
         encoding = null
         label = null
     }
     else{
         script = args.script
-        returnStatus = args?.returnStatus != null ? args.returnStatus : true
+        returnStatus = args?.returnStatus != null ? args.returnStatus : false
         returnStdout = args?.returnStdout != null ? args.returnStdout : false
         encoding = args?.encoding
         label = args?.label
