@@ -28,6 +28,8 @@ def getChangelog(branch){
 def call(branch) {
     changelog = getChangelog(branch)
     lexemes = ChangeSet.readGitChangelogPrettyMedium(changelog)
+            .findAll{s -> s.message ==~ '''(fix|feat|breaking|minor)(\\([A-Z]+-\\d+\\)|\\(\\))!?:.*'''}
+            .collect{t -> identifyToken(t.message)}
     countWithTypeFiltered = {arr, lType ->  arr.findAll{z -> z.lexemeType == lType}.size()}
     countWithType = {it -> countWithTypeFiltered(lexemes, it)}
 
