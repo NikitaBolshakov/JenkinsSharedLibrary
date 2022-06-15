@@ -1,7 +1,7 @@
-def call(script, encoding=null, label=null, returnStatus=true, returnStdout=false){
+def call(args){
     if(isUnix()){
-        sh(script:script, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
+        sh(script:args.script, encoding:args?.encoding, label:args?.label, returnStatus:args?.returnStatus, returnStdout:args?.returnStdout)
     }
     else
-        bat(script:script, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
+        bat(script:args.script, encoding:args?.encoding, label:args?.label, returnStatus:args?.returnStatus, returnStdout:args?.returnStdout)
 }
