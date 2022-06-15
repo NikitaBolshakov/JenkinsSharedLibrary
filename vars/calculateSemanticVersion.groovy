@@ -7,7 +7,7 @@ private def takeLessThen(lexemes, lexemeType){
 }
 
 @NonCPS
-private def getChangelog(branch){
+def getChangelog(branch){
     if(isUnix()){
         changelog = sh returnStdout: true, script: "git log --pretty=medium ${branch}"
     }
