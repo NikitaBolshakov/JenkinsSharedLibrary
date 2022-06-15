@@ -1,7 +1,7 @@
-call(script){
+def call(script, encoding=null, label=null, returnStatus=true, returnStdout=false){
     if(isUnix()){
-        sh(script:script, returnStdout:true)
+        sh(script:script, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
     }
     else
-        powershell(script:script, returnStdout:true)
+        bat(script:script, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
 }
