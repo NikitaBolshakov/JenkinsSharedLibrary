@@ -9,8 +9,8 @@ def call(args){
     }
     else{
         script = args.script
-        returnStatus = args?.returnStatus ? args.returnStatus : true
-        returnStdout = args?.returnStdout ? args.returnStdout : false
+        returnStatus = args?.returnStatus != null ? args.returnStatus : true
+        returnStdout = args?.returnStdout != null ? args.returnStdout : false
         encoding = args?.encoding
         label = args?.label
     }
