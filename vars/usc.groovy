@@ -1,7 +1,7 @@
-call(script, encoding=null, label=null, returnStatus=true, returnStdout=false){
+call(script){
     if(isUnix()){
-        sh(script, encoding=encoding, label=label, returnStatus=returnStatus, returnStdout=returnStdout)
+        sh(script:script, returnStdout:true)
     }
     else
-        powershell(script, encoding=encoding, label=label, returnStatus=returnStatus, returnStdout=returnStdout)
+        powershell(script:script, returnStdout:true)
 }
