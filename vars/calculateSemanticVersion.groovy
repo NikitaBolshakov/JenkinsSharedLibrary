@@ -14,6 +14,7 @@ private def getChangelog(branch){
     else{
         changelog = bat returnStdout: true, script: "git log --pretty=medium ${branch}"
     }
+    changelog
 }
 
 @NonCPS
