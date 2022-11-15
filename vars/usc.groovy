@@ -9,6 +9,8 @@ def call(args){
     }
     else{
         script = args.script
+        unixScript = args?.unix != null ? args.unix : script
+        windowsScript = args?.windows != null ? args.windows : script
         returnStatus = args?.returnStatus != null ? args.returnStatus : false
         returnStdout = args?.returnStdout != null ? args.returnStdout : false
         encoding = args?.encoding
@@ -16,8 +18,8 @@ def call(args){
     }
 
     if(isUnix()){
-        sh(script:script, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
+        sh(script: unixScript, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
     }
     else
-        bat(script:script, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
+        bat(script:windowsScript, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
 }
