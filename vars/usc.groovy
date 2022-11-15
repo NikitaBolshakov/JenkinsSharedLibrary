@@ -1,7 +1,9 @@
 def call(args){
     if(args instanceof String)
     {
-        script = args
+        unixScript = args
+        windowsScript = args
+        
         returnStatus = false
         returnStdout = false
         encoding = null
@@ -18,8 +20,8 @@ def call(args){
     }
 
     if(isUnix()){
-        sh(script: unixScript, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
+        return sh(script: unixScript, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
     }
     else
-        bat(script:windowsScript, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
+        return bat(script:windowsScript, encoding:encoding, label:label, returnStatus:returnStatus, returnStdout:returnStdout)
 }
